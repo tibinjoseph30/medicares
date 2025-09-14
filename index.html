@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicares dashboard</title>
+
+    <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <!-- tailwind css quick setup -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- custom styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <aside class="bg-white w-[var(--sidebar-width)] fixed left-0 -translate-x-[var(--sidebar-width)] xl:translate-x-0 top-0 h-screen border-r border-[var(--border-color)]">
+    <!-- sidebar starts -->
+    <aside class="sidebar bg-white w-[var(--sidebar-width)] fixed left-0 z-11 -translate-x-[var(--sidebar-width)] xl:translate-x-0 top-0 h-screen border-r border-[var(--border-color)] transition-all duration-300">
         <div class="min-h-[var(--header-height)] flex items-center justify-center w-full">
             <a href="#">
                 <img src="./images/MediCares-logo.svg" alt="logo">
@@ -87,17 +94,38 @@
             </ul>
         </nav>
     </aside>
+    <!-- sidebar ends -->
+     <!-- header starts -->
     <header class="bg-white fixed top-0 xl:left-[var(--sidebar-width)] left-0 xl:w-[calc(100%-var(--sidebar-width))] w-full min-h-[var(--header-height)] border-b border-[var(--border-color)] flex items-center z-10">
-        <div class="container max-w-full w-full flex items-center justify-between">
-            <div class="border border-[var(--border-color)] rounded-full px-4 w-[250px] flex items-center gap-2">
-                <span class="text-[var(--icon-color)]">
+        <div class="container max-w-full w-full flex justify-between gap-2">
+            <div class="flex items-center sm:gap-4 gap-2">
+                <button class="sidebar-toggler xl:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-6 h-6" fill="currentColor">
+                        <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"/>
+                    </svg>
+                </button>
+                <div class="search-bar">
+                    <div class="search-area border border-[var(--border-color)] rounded-full px-4 w-[250px] flex items-center gap-2">
+                        <span class="text-[var(--icon-color)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                                <path d="M5.46191 0.618164C6.65769 0.380327 7.89705 0.50316 9.02344 0.969727C10.1497 1.43625 11.1127 2.22569 11.79 3.23926C12.4673 4.25288 12.829 5.445 12.8291 6.66406V6.66504C12.8308 8.03277 12.3727 9.36156 11.5283 10.4375L11.2539 10.7871L11.5684 11.1006L14.4004 13.9248L14.4014 13.9258C14.4326 13.9567 14.4577 13.9936 14.4746 14.0342C14.4915 14.0747 14.5 14.1182 14.5 14.1621C14.5 14.206 14.4915 14.2495 14.4746 14.29C14.4577 14.3306 14.4326 14.3675 14.4014 14.3984L14.3984 14.4014C14.3675 14.4326 14.3306 14.4577 14.29 14.4746C14.2495 14.4915 14.206 14.5 14.1621 14.5C14.1182 14.5 14.0747 14.4915 14.0342 14.4746C13.9936 14.4577 13.9567 14.4326 13.9258 14.4014L13.9248 14.4004L11.1006 11.5684L10.7871 11.2539L10.4375 11.5283C9.36156 12.3727 8.03277 12.8308 6.66504 12.8291H6.66406C5.445 12.829 4.25288 12.4673 3.23926 11.79C2.22569 11.1127 1.43625 10.1497 0.969727 9.02344C0.50316 7.89705 0.380327 6.65769 0.618164 5.46191C0.856023 4.26611 1.44354 3.16779 2.30566 2.30566C3.16779 1.44354 4.26611 0.856023 5.46191 0.618164ZM7.7373 1.27148C6.67074 1.05933 5.56524 1.16881 4.56055 1.58496C3.55595 2.00108 2.69693 2.7053 2.09277 3.60938C1.48869 4.51345 1.16611 5.57674 1.16602 6.66406C1.16602 8.12233 1.74522 9.52159 2.77637 10.5527C3.8074 11.5838 5.20598 12.163 6.66406 12.1631C7.75154 12.1631 8.81552 11.8405 9.71973 11.2363C10.6238 10.6322 11.328 9.77315 11.7441 8.76855C12.1603 7.76387 12.2698 6.65837 12.0576 5.5918C11.8455 4.52523 11.3217 3.54533 10.5527 2.77637C9.78378 2.00741 8.80387 1.48365 7.7373 1.27148Z" stroke="currentcolor"/>
+                            </svg>
+                        </span>
+                        <input type="text" name="search" placeholder="Search here..." class="outline-none min-h-[var(--form-element-height)]">
+                    </div>
+                    <button class="search-closer border border-[var(--border-color)] text-[var(--icon-color)] min-h-[var(--form-element-height)] w-[40px] h-[40px] min-w-[40px] rounded-full flex items-center justify-center cursor-pointer hover:border-[var(--icon-color)] transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-4 h-4" fill="currentColor">
+                            <path d="M 16 14 C 15.488 14 14.976938 14.194937 14.585938 14.585938 C 13.804937 15.366937 13.804937 16.633063 14.585938 17.414062 L 29.171875 32 L 14.585938 46.585938 C 13.804938 47.366938 13.804937 48.633063 14.585938 49.414062 C 14.976937 49.805062 15.488 50 16 50 C 16.512 50 17.023062 49.805062 17.414062 49.414062 L 32 34.828125 L 46.585938 49.414062 C 47.366938 50.195063 48.633063 50.195062 49.414062 49.414062 C 50.195063 48.633062 50.195062 47.366937 49.414062 46.585938 L 34.828125 32 L 49.414062 17.414062 C 50.195063 16.633063 50.195062 15.366938 49.414062 14.585938 C 48.633062 13.804938 47.366937 13.804938 46.585938 14.585938 L 32 29.171875 L 17.414062 14.585938 C 17.023062 14.194938 16.512 14 16 14 z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center sm:gap-4 gap-2">
+                <button class="search-toggler border border-[var(--border-color)] text-[var(--icon-color)] min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer hover:border-[var(--icon-color)] transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                         <path d="M5.46191 0.618164C6.65769 0.380327 7.89705 0.50316 9.02344 0.969727C10.1497 1.43625 11.1127 2.22569 11.79 3.23926C12.4673 4.25288 12.829 5.445 12.8291 6.66406V6.66504C12.8308 8.03277 12.3727 9.36156 11.5283 10.4375L11.2539 10.7871L11.5684 11.1006L14.4004 13.9248L14.4014 13.9258C14.4326 13.9567 14.4577 13.9936 14.4746 14.0342C14.4915 14.0747 14.5 14.1182 14.5 14.1621C14.5 14.206 14.4915 14.2495 14.4746 14.29C14.4577 14.3306 14.4326 14.3675 14.4014 14.3984L14.3984 14.4014C14.3675 14.4326 14.3306 14.4577 14.29 14.4746C14.2495 14.4915 14.206 14.5 14.1621 14.5C14.1182 14.5 14.0747 14.4915 14.0342 14.4746C13.9936 14.4577 13.9567 14.4326 13.9258 14.4014L13.9248 14.4004L11.1006 11.5684L10.7871 11.2539L10.4375 11.5283C9.36156 12.3727 8.03277 12.8308 6.66504 12.8291H6.66406C5.445 12.829 4.25288 12.4673 3.23926 11.79C2.22569 11.1127 1.43625 10.1497 0.969727 9.02344C0.50316 7.89705 0.380327 6.65769 0.618164 5.46191C0.856023 4.26611 1.44354 3.16779 2.30566 2.30566C3.16779 1.44354 4.26611 0.856023 5.46191 0.618164ZM7.7373 1.27148C6.67074 1.05933 5.56524 1.16881 4.56055 1.58496C3.55595 2.00108 2.69693 2.7053 2.09277 3.60938C1.48869 4.51345 1.16611 5.57674 1.16602 6.66406C1.16602 8.12233 1.74522 9.52159 2.77637 10.5527C3.8074 11.5838 5.20598 12.163 6.66406 12.1631C7.75154 12.1631 8.81552 11.8405 9.71973 11.2363C10.6238 10.6322 11.328 9.77315 11.7441 8.76855C12.1603 7.76387 12.2698 6.65837 12.0576 5.5918C11.8455 4.52523 11.3217 3.54533 10.5527 2.77637C9.78378 2.00741 8.80387 1.48365 7.7373 1.27148Z" stroke="currentcolor"/>
                     </svg>
-                </span>
-                <input type="text" name="search" placeholder="Search here..." class="outline-none min-h-[var(--form-element-height)]">
-            </div>
-            <div class="flex items-center gap-4">
+                </button>
                 <button class="border border-[var(--border-color)] text-[var(--icon-color)] min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer hover:border-[var(--icon-color)] transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
                         <path d="M7.03977 2.78735C7.32148 2.78735 7.99078 2.95962 7.99078 2.95962C9.80398 3.36142 11.0802 4.9765 11.0802 6.8V11.7082L11.451 12.0683L11.7607 12.3692H2.23928L2.54903 12.0683L2.91976 11.7082V6.8C2.91976 4.97654 4.19602 3.36142 6.00922 2.95962C6.00922 2.95962 6.72684 2.78735 6.96023 2.78735M7 0C6.29992 0 5.7647 0.519923 5.7647 1.2V1.75996C3.41751 2.28008 1.64703 4.36 1.64703 6.8V11.2L0 12.8V13.6H14V12.8L12.353 11.2V6.8C12.353 4.36 10.5824 2.28008 8.2353 1.75996V1.2C8.2353 0.519923 7.70008 0 7 0ZM8.64703 14.4H5.35293C5.35293 15.28 6.09402 16 7 16C7.90598 16 8.64703 15.28 8.64703 14.4Z" fill="currentColor"/>
@@ -116,8 +144,10 @@
             </div>
         </div>
     </header>
+    <!-- header ends -->
     <main class="bg-[var(--main-bg)] flex flex-col xl:ml-[var(--sidebar-width)] xl:w-[calc(100%-var(--sidebar-width))] min-h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] py-7">
         <div class="container w-full max-w-full grid gap-8">
+            <!-- top filter starts -->
             <section>
                 <div class="grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4">
                     <div>
@@ -158,6 +188,8 @@
                     </div>
                 </div>
             </section>
+            <!-- top filter ends -->
+             <!-- top cards starts -->
             <section>
                 <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
                     <div class="card relative bg-[var(--primary-color)] xl:px-10 sm:px-5 px-12 py-7 rounded-2xl flex xl:flex-row sm:flex-col items-center gap-4">
@@ -213,20 +245,23 @@
                     </div>
                 </div>
             </section>
+            <!-- top cards ends -->
+            <!-- graphs & tables starts -->
             <section>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Consultation Per Department</h3>
                         <figure class="mt-4">
-                            <img src="./images/graphics/graph1.svg" alt="consultation per department graph" class="w-full">
+                            <img src="./images/graphics/graph1.svg" alt="consultation per department graph" class="w-full" width="506" height="257">
                         </figure>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Top Diagnosis</h3>
                         <figure class="mt-4">
-                            <img src="./images/graphics/graph2.svg" alt="top diagnosis graph" class="w-full">
+                            <img src="./images/graphics/graph2.svg" alt="top diagnosis graph" class="w-full" width="494" height="258">
                         </figure>
                     </div>
+                    <!-- tables starts -->
                     <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
                         <div class="flex md:flex-row flex-col justify-between md:items-center gap-y-2 mb-4">
                             <h3 class="text-xl font-semibold">Patient Details</h3>
@@ -363,10 +398,15 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- tables ends -->
                 </div>
             </section>
+            <!-- graphs & tables ends -->
         </div>
     </main>
+    <div class="overlay fixed inset-0 w-full h-full bg-black/50 opacity-0 -z-10 transition-opacity duration-300"></div>
+    
+    <!-- script  -->
     <script src="./js/script.js"></script>
 </body>
 </html>
