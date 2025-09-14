@@ -114,7 +114,6 @@ input[type="range"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease-in;
 }
 .pagination a.active {
     background: var(--primary-color);
