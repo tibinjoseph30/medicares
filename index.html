@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <aside class="bg-white w-[var(--sidebar-width)] fixed left-0 top-0 h-screen border-r border-[var(--border-color)]">
+    <aside class="bg-white w-[var(--sidebar-width)] fixed left-0 -translate-x-[var(--sidebar-width)] xl:translate-x-0 top-0 h-screen border-r border-[var(--border-color)]">
         <div class="min-h-[var(--header-height)] flex items-center justify-center w-full">
             <a href="#">
                 <img src="./images/MediCares-logo.svg" alt="logo">
@@ -87,7 +87,7 @@
             </ul>
         </nav>
     </aside>
-    <header class="bg-white fixed top-0 left-[var(--sidebar-width)] w-[calc(100%-var(--sidebar-width))] min-h-[var(--header-height)] border-b border-[var(--border-color)] flex items-center">
+    <header class="bg-white fixed top-0 xl:left-[var(--sidebar-width)] left-0 xl:w-[calc(100%-var(--sidebar-width))] w-full min-h-[var(--header-height)] border-b border-[var(--border-color)] flex items-center z-10">
         <div class="container max-w-full w-full flex items-center justify-between">
             <div class="border border-[var(--border-color)] rounded-full px-4 w-[250px] flex items-center gap-2">
                 <span class="text-[var(--icon-color)]">
@@ -97,22 +97,29 @@
                 </span>
                 <input type="text" name="search" placeholder="Search here..." class="outline-none min-h-[var(--form-element-height)]">
             </div>
-            <div class="flex gap-4">
-                <button class="border border-[var(--border-color)] text-[var(--icon-color)] min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
-                    <path d="M7.03977 2.78735C7.32148 2.78735 7.99078 2.95962 7.99078 2.95962C9.80398 3.36142 11.0802 4.9765 11.0802 6.8V11.7082L11.451 12.0683L11.7607 12.3692H2.23928L2.54903 12.0683L2.91976 11.7082V6.8C2.91976 4.97654 4.19602 3.36142 6.00922 2.95962C6.00922 2.95962 6.72684 2.78735 6.96023 2.78735M7 0C6.29992 0 5.7647 0.519923 5.7647 1.2V1.75996C3.41751 2.28008 1.64703 4.36 1.64703 6.8V11.2L0 12.8V13.6H14V12.8L12.353 11.2V6.8C12.353 4.36 10.5824 2.28008 8.2353 1.75996V1.2C8.2353 0.519923 7.70008 0 7 0ZM8.64703 14.4H5.35293C5.35293 15.28 6.09402 16 7 16C7.90598 16 8.64703 15.28 8.64703 14.4Z" fill="currentColor"/>
-                </svg>
+            <div class="flex items-center gap-4">
+                <button class="border border-[var(--border-color)] text-[var(--icon-color)] min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer hover:border-[var(--icon-color)] transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                        <path d="M7.03977 2.78735C7.32148 2.78735 7.99078 2.95962 7.99078 2.95962C9.80398 3.36142 11.0802 4.9765 11.0802 6.8V11.7082L11.451 12.0683L11.7607 12.3692H2.23928L2.54903 12.0683L2.91976 11.7082V6.8C2.91976 4.97654 4.19602 3.36142 6.00922 2.95962C6.00922 2.95962 6.72684 2.78735 6.96023 2.78735M7 0C6.29992 0 5.7647 0.519923 5.7647 1.2V1.75996C3.41751 2.28008 1.64703 4.36 1.64703 6.8V11.2L0 12.8V13.6H14V12.8L12.353 11.2V6.8C12.353 4.36 10.5824 2.28008 8.2353 1.75996V1.2C8.2353 0.519923 7.70008 0 7 0ZM8.64703 14.4H5.35293C5.35293 15.28 6.09402 16 7 16C7.90598 16 8.64703 15.28 8.64703 14.4Z" fill="currentColor"/>
+                    </svg>
                 </button>
-                <button class="min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full cursor-pointer">
-                    <img src="./images/avatar/user.png" alt="user avatar" class="w-full h-full object-cover rounded-full">
-                </button>
+                <div class="relative flex items-center">
+                    <button class="user-btn min-h-[var(--form-element-height)] w-[40px] h-[40px] rounded-full cursor-pointer">
+                        <img src="./images/avatar/user.png" alt="user avatar" class="w-full h-full object-cover rounded-full">
+                    </button>
+                    <div class="user-menu hidden absolute right-0 top-full w-40 bg-white border border-[var(--border-color)] rounded-md shadow-[var(--global-shadow)] p-2 opacity-0 translate-y-3 mt-3 transition-all duration-300">
+                        <a href="#" class="block px-4 py-1 rounded-md hover:bg-[rgb(var(--primary-color-rgb)/10%)] hover:text-[var(--primary-color)]">Profile</a>
+                        <a href="#" class="block px-4 py-1 rounded-md hover:bg-[rgb(var(--primary-color-rgb)/10%)] hover:text-[var(--primary-color)]">Account</a>
+                        <a href="#" class="block px-4 py-1 rounded-md hover:bg-[rgb(var(--primary-color-rgb)/10%)] hover:text-[var(--primary-color)]">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
-    <main class="bg-[var(--main-bg)] flex flex-col ml-[var(--sidebar-width)] w-[calc(100%-var(--sidebar-width))] min-h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] py-7">
-        <div class="container grid gap-8">
+    <main class="bg-[var(--main-bg)] flex flex-col xl:ml-[var(--sidebar-width)] xl:w-[calc(100%-var(--sidebar-width))] min-h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] py-7">
+        <div class="container w-full max-w-full grid gap-8">
             <section>
-                <div class="grid grid-cols-5 gap-4">
+                <div class="grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="checkBydate" class="inline-block mb-1">Check by Date</label>
                         <div class="relative border border-[var(--border-color)] rounded-full bg-white cursor-pointer w-full flex items-center gap-3 shadow-[var(--global-shadow)]">
@@ -152,54 +159,54 @@
                 </div>
             </section>
             <section>
-                <div class="grid grid-cols-4 gap-4">
-                    <div class="card relative bg-[var(--primary-color)] px-10 py-7 rounded-2xl flex items-center gap-4">
-                        <div class="bg-white w-[44px] h-[44px] rounded-full flex items-center justify-center">
+                <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
+                    <div class="card relative bg-[var(--primary-color)] xl:px-10 sm:px-5 px-12 py-7 rounded-2xl flex xl:flex-row sm:flex-col items-center gap-4">
+                        <div class="bg-white w-[44px] h-[44px] min-w-[44px] rounded-full flex items-center justify-center z-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none" class="text-[var(--primary-color)]">
                                 <path d="M20 10.8333H9.16667C8.94565 10.8333 8.73369 10.9211 8.57741 11.0774C8.42113 11.2337 8.33333 11.4456 8.33333 11.6667V15H1.66667V6.66666C1.66667 6.44565 1.57887 6.23369 1.42259 6.07741C1.26631 5.92113 1.05435 5.83333 0.833333 5.83333C0.61232 5.83333 0.400358 5.92113 0.244078 6.07741C0.0877973 6.23369 0 6.44565 0 6.66666V19.1667C0 19.3877 0.0877973 19.5996 0.244078 19.7559C0.400358 19.9122 0.61232 20 0.833333 20C1.05435 20 1.26631 19.9122 1.42259 19.7559C1.57887 19.5996 1.66667 19.3877 1.66667 19.1667V16.6667H21.6667V19.1667C21.6667 19.3877 21.7545 19.5996 21.9107 19.7559C22.067 19.9122 22.279 20 22.5 20C22.721 20 22.933 19.9122 23.0893 19.7559C23.2455 19.5996 23.3333 19.3877 23.3333 19.1667V14.1667C23.3324 13.2829 22.9809 12.4356 22.356 11.8107C21.7311 11.1857 20.8838 10.8343 20 10.8333Z" fill="currentColor"/>
                                 <path d="M5 15C6.38071 15 7.5 13.8807 7.5 12.5C7.5 11.1193 6.38071 10 5 10C3.61929 10 2.5 11.1193 2.5 12.5C2.5 13.8807 3.61929 15 5 15Z" fill="currentColor"/>
                                 <path d="M11.6667 0C11.4457 0 11.2337 0.0877975 11.0775 0.244078C10.9212 0.400358 10.8334 0.61232 10.8334 0.833333V2.5H9.16671C8.94569 2.5 8.73373 2.5878 8.57745 2.74408C8.42117 2.90036 8.33337 3.11232 8.33337 3.33333C8.33337 3.55435 8.42117 3.76631 8.57745 3.92259C8.73373 4.07887 8.94569 4.16667 9.16671 4.16667H10.8334V5.83333C10.8334 6.05435 10.9212 6.26631 11.0775 6.42259C11.2337 6.57887 11.4457 6.66667 11.6667 6.66667C11.8877 6.66667 12.0997 6.57887 12.256 6.42259C12.4122 6.26631 12.5 6.05435 12.5 5.83333V4.16667H14.1667C14.3877 4.16667 14.5997 4.07887 14.756 3.92259C14.9122 3.76631 15 3.55435 15 3.33333C15 3.11232 14.9122 2.90036 14.756 2.74408C14.5997 2.5878 14.3877 2.5 14.1667 2.5H12.5V0.833333C12.5 0.61232 12.4122 0.400358 12.256 0.244078C12.0997 0.0877975 11.8877 0 11.6667 0Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <div>
+                        <div class="z-1 xl:text-left sm:text-center">
                             <h1 class="text-2xl font-bold text-white">26</h1>
                             <p class="text-white">Admissions</p>
                         </div>
                     </div>
-                    <div class="card relative bg-[var(--primary-color)] px-10 py-7 rounded-2xl flex items-center gap-4">
-                        <div class="bg-white w-[44px] h-[44px] rounded-full flex items-center justify-center">
+                    <div class="card relative bg-[var(--primary-color)] xl:px-10 sm:px-5 px-12 py-7 rounded-2xl flex xl:flex-row sm:flex-col items-center gap-4">
+                        <div class="bg-white w-[44px] h-[44px] min-w-[44px] rounded-full flex items-center justify-center z-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none" class="text-[var(--primary-color)]">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7827 5.57702C17.7827 7.78803 17.2333 10.6717 16.3884 10.2339C15.7483 12.3261 13.8019 13.8476 11.5001 13.8476C8.85076 13.8476 6.67228 11.8319 6.41449 9.25044C5.57582 7.78253 4.47546 4.84198 7.30395 2.54924C7.35442 2.53257 7.38566 2.39497 7.43192 2.19158C7.60653 1.423 7.99465 -0.285222 10.4407 0.0408926C12.3275 0.292449 17.7827 1.26628 17.7827 5.57702ZM15.3514 6.97057C15.3514 6.97057 15.0628 7.81499 15.3334 8.75652C15.3226 10.8644 13.6106 12.5699 11.5001 12.5699C9.43183 12.5699 7.74606 10.9318 7.66952 8.88219C7.76222 8.53086 7.76184 7.93574 7.76139 7.27481C7.76063 6.082 7.75973 4.67498 8.30579 4.10068C12.1319 6.64889 15.3514 6.97057 15.3514 6.97057Z" fill="currentColor"/>
                                 <path d="M4.47222 19.7534C4.47222 19.062 4.83843 18.456 5.38749 18.1189C5.36718 18.0421 5.34756 17.9619 5.32872 17.8795C5.24074 17.4952 5.16088 17.0276 5.10229 16.5582C5.04805 16.1234 5.01042 15.6739 5.00314 15.2768C2.30634 16.3353 0 18.1802 0 20.1175V23.5868H23V20.1175C23 18.2623 20.885 16.4919 18.3373 15.4155L18.3378 15.433C18.3488 15.8229 18.3269 16.2698 18.2852 16.7004C18.2467 17.0987 18.1899 17.4964 18.1216 17.8368H18.5278C18.7698 17.8368 18.991 17.9735 19.0992 18.19L19.7381 19.4677C19.7825 19.5564 19.8056 19.6543 19.8056 19.7534V21.0312C19.8056 21.3841 19.5195 21.6701 19.1667 21.6701H17.8889V20.3923H18.5278V19.9043L18.1329 19.1146H16.3671L15.9722 19.9043V20.3923H16.6111V21.6701H15.3333C14.9805 21.6701 14.6944 21.3841 14.6944 21.0312V19.7534C14.6944 19.6543 14.7175 19.5564 14.7619 19.4677L15.4008 18.19C15.509 17.9735 15.7302 17.8368 15.9722 17.8368H16.8125C16.8264 17.7819 16.8405 17.721 16.8546 17.6543C16.9185 17.3531 16.9752 16.9715 17.0134 16.5773C17.0516 16.1827 17.0696 15.7911 17.0606 15.4689C17.056 15.3075 17.045 15.1734 17.0291 15.0703C17.0151 14.9797 17.0011 14.9379 16.9981 14.929C16.9981 14.9291 16.9981 14.9289 16.9981 14.929C16.9975 14.9272 16.9973 14.9267 16.9978 14.9277C16.9979 14.9278 16.9978 14.9275 16.9978 14.9277L17.0001 14.927C16.6587 14.8211 16.3149 14.7285 15.9722 14.6504C15.651 14.5772 15.319 15.0194 15.1732 15.2964H12.5766C12.0079 15.2965 11.7185 15.2964 11.4341 15.2964H11.4242C11.1335 15.2963 10.8444 15.2962 10.263 15.2964H7.66667C7.64884 15.2625 7.63063 15.2262 7.61179 15.1886C7.4766 14.919 7.30972 14.5862 7.02778 14.6504C6.78187 14.7064 6.53539 14.7699 6.28961 14.8405C6.28245 14.9351 6.27894 15.0479 6.27977 15.1774C6.282 15.5306 6.3158 15.9635 6.3703 16.4C6.42467 16.8358 6.49769 17.26 6.57423 17.5944C6.59646 17.6914 6.61831 17.7779 6.63927 17.853C7.57952 17.9757 8.30556 18.7798 8.30556 19.7534C8.30556 20.812 7.44746 21.6701 6.38889 21.6701C5.33031 21.6701 4.47222 20.812 4.47222 19.7534Z" fill="currentColor"/>
                                 <path d="M7.02778 19.7534C7.02778 20.1203 6.73287 20.4017 6.38889 20.4017C6.04491 20.4017 5.75 20.1203 5.75 19.7534C5.75 19.3866 6.04491 19.1052 6.38889 19.1052C6.73287 19.1052 7.02778 19.3866 7.02778 19.7534Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <div>
+                        <div class="z-1 xl:text-left sm:text-center">
                             <h1 class="text-2xl font-bold text-white">76</h1>
                             <p class="text-white">Appointments</p>
                         </div>
                     </div>
-                    <div class="card relative bg-[var(--primary-color)] px-10 py-7 rounded-2xl flex items-center gap-4">
-                        <div class="bg-white w-[44px] h-[44px] rounded-full flex items-center justify-center">
+                    <div class="card relative bg-[var(--primary-color)] xl:px-10 sm:px-5 px-12 py-7 rounded-2xl flex xl:flex-row sm:flex-col items-center gap-4">
+                        <div class="bg-white w-[44px] h-[44px] min-w-[44px] rounded-full flex items-center justify-center z-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="30" viewBox="0 0 23 30" fill="none" class="text-[var(--primary-color)]">
                                 <path d="M16.5437 2.82456C16.5437 4.38452 15.2792 5.64912 13.7192 5.64912C12.1592 5.64912 10.8946 4.38452 10.8946 2.82456C10.8946 1.26459 12.1592 0 13.7192 0C15.2792 0 16.5437 1.26459 16.5437 2.82456ZM11.8062 21.2831L12.9072 21.2042C12.9105 21.1307 12.9122 21.0568 12.9122 20.9824C12.9122 18.3082 10.7443 16.1403 8.07007 16.1403C7.35562 16.1403 6.6774 16.295 6.06689 16.5728C6.10152 17.5013 6.19763 18.2482 6.3412 18.6472C7.44205 21.7064 11.8062 21.2831 11.8062 21.2831Z" fill="currentColor"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M22.8698 25.3428C23.596 27.0167 21.0927 28.2674 20.0991 26.7666C19.1055 25.2658 16.6406 20.9367 16.6406 20.9367L16.1403 20.9726V20.9824C16.1403 25.4394 12.5272 29.0526 8.07016 29.0526C3.61317 29.0526 0 25.4394 0 20.9824C0 17.5191 2.18161 14.5653 5.24561 13.4204V8.67542L3.14736 7.10174L4.11578 5.81051L6.85964 7.8684V9.64206C7.06325 9.00904 7.30939 8.45954 7.60242 8.0457C9.26487 5.69842 9.5897 5.52523 11.424 5.69842C13.2585 5.8716 16.3539 11.99 16.3539 11.99C16.3539 11.99 20.252 12.9135 21.7425 13.433C23.2329 13.9525 22.2966 15.992 21.3411 15.9535C20.3858 15.915 15.1501 15.3955 14.4432 14.9915C13.7361 14.5875 12.5514 12.6442 12.5514 12.6442L12.435 14.1934C13.3408 14.7769 14.1222 15.5368 14.7308 16.4244C16.1852 16.5509 17.8384 16.6847 18.3221 16.6847C19.2393 16.6847 19.4495 17.3196 19.4495 17.3196C19.4495 17.3196 22.1437 23.6689 22.8698 25.3428ZM12.4259 16.2169C12.3817 16.1766 12.3371 16.1369 12.2919 16.0977C11.16 15.1186 9.68428 14.5263 8.07016 14.5263C7.3721 14.5263 6.69985 14.6371 6.07014 14.8421C3.48349 15.684 1.61403 18.1148 1.61403 20.9824C1.61403 24.5481 4.50452 27.4386 8.07016 27.4386C11.6358 27.4386 14.5263 24.5481 14.5263 20.9824C14.5263 19.0954 13.7167 17.3973 12.4259 16.2169Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <div>
+                        <div class="z-1 xl:text-left sm:text-center">
                             <h1 class="text-2xl font-bold text-white">35</h1>
                             <p class="text-white">Discharged</p>
                         </div>
                     </div>
-                    <div class="card relative bg-[var(--primary-color)] px-10 py-7 rounded-2xl flex items-center gap-4">
-                        <div class="bg-white w-[44px] h-[44px] rounded-full flex items-center justify-center">
+                    <div class="card relative bg-[var(--primary-color)] xl:px-10 sm:px-5 px-12 py-7 rounded-2xl flex xl:flex-row sm:flex-col items-center gap-4">
+                        <div class="bg-white w-[44px] h-[44px] min-w-[44px] rounded-full flex items-center justify-center z-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="31" height="18" viewBox="0 0 31 18" fill="none" class="text-[var(--primary-color)]">
                                 <path d="M18.426 11.6235L19.9835 13.5895L16.3453 17.5532C16.0835 17.8404 15.707 18 15.3176 18C14.9282 18 14.5581 17.8404 14.2899 17.5532L9.11987 11.9235L11.3794 8.89798L13.5879 13.5639C13.8815 14.1766 14.4814 14.5979 15.1644 14.6554L15.2665 14.6617H15.3176C15.9431 14.6617 16.5303 14.3554 16.8942 13.8383L18.426 11.6235Z" fill="currentColor"/>
                                 <path d="M23.0114 14.9632C23.0083 14.9632 23.0052 14.9632 23.0014 14.9632C22.8101 14.96 22.6305 14.8715 22.5115 14.7216L18.3564 9.48223L15.8437 13.1081C15.7128 13.2951 15.4916 13.3986 15.2665 13.3805C15.0397 13.3618 14.8396 13.2235 14.7423 13.0178L11.6238 6.43291L7.61956 11.8072C7.49925 11.9687 7.30914 12.0641 7.1078 12.0641H0.638288C0.285487 12.0641 0 11.7783 0 11.4258C0 11.0733 0.285487 10.7875 0.638288 10.7875H6.78742L11.2342 4.8188C11.367 4.6399 11.5783 4.54204 11.809 4.5651C12.0321 4.58723 12.2272 4.72467 12.3226 4.92694L15.423 11.4735L17.7973 8.04795C17.9126 7.88183 18.0996 7.78023 18.3015 7.77368C18.5016 7.76589 18.6974 7.85689 18.822 8.01491L23.027 13.3169L24.9711 11.0141C25.0921 10.8704 25.2703 10.7875 25.4586 10.7875H29.9995C30.3523 10.7875 30.6378 11.0733 30.6378 11.4258C30.6378 11.7783 30.3523 12.0641 29.9995 12.0641H25.7553L23.4988 14.7366C23.3779 14.8803 23.199 14.9632 23.0114 14.9632Z" fill="currentColor"/>
                                 <path d="M24.0365 9.17251L22.6068 10.73L19.8239 7.22578C19.4664 6.76615 18.9047 6.49804 18.3239 6.49804H18.2602C17.66 6.51721 17.092 6.82357 16.7473 7.32146L15.6303 8.92996L13.4792 4.38534C13.192 3.77893 12.5985 3.35771 11.9346 3.29382C11.8707 3.28751 11.807 3.28751 11.7431 3.28751C11.1304 3.28751 10.5751 3.56832 10.2113 4.05342L6.49 9.04481C5.13052 7.48103 4.76666 5.3173 5.55174 3.3641C6.31765 1.43646 8.06032 0.153492 10.1028 0.0130873C12.0878 -0.114538 14.0346 0.696024 15.3176 2.18959C16.5049 0.804559 18.2346 0.000309048 20.0983 0.000309048C20.2451 0.000309048 20.3919 0.00669802 20.5387 0.0130873C22.5748 0.153492 24.3173 1.43646 25.0898 3.3641C25.8877 5.36826 25.4855 7.59596 24.0365 9.17251Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <div>
+                        <div class="z-1 xl:text-left sm:text-center">
                             <h1 class="text-2xl font-bold text-white">3</h1>
                             <p class="text-white">Emergency Care</p>
                         </div>
@@ -207,37 +214,159 @@
                 </div>
             </section>
             <section>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Consultation Per Department</h3>
                         <figure class="mt-4">
-                            <img src="./images/graphics/graph1.svg" alt="consultation per department graph">
+                            <img src="./images/graphics/graph1.svg" alt="consultation per department graph" class="w-full">
                         </figure>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Top Diagnosis</h3>
                         <figure class="mt-4">
-                            <img src="./images/graphics/graph2.svg" alt="consultation per department graph">
+                            <img src="./images/graphics/graph2.svg" alt="top diagnosis graph" class="w-full">
                         </figure>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
-                        <div class="flex justify-between items-center mb-4">
+                    <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
+                        <div class="flex md:flex-row flex-col justify-between md:items-center gap-y-2 mb-4">
                             <h3 class="text-xl font-semibold">Patient Details</h3>
-                            <div>
-                                <div class="border border-[var(--border-color)] rounded-full px-4 w-[250px] flex items-center gap-2">
+                            <div class="flex sm:flex-row flex-col justify-between gap-4">
+                                <div class="border border-[var(--border-color)] rounded-full px-4 sm:w-[250px] w-full flex items-center gap-2">
                                     <span class="text-[var(--icon-color)]">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                                             <path d="M5.46191 0.618164C6.65769 0.380327 7.89705 0.50316 9.02344 0.969727C10.1497 1.43625 11.1127 2.22569 11.79 3.23926C12.4673 4.25288 12.829 5.445 12.8291 6.66406V6.66504C12.8308 8.03277 12.3727 9.36156 11.5283 10.4375L11.2539 10.7871L11.5684 11.1006L14.4004 13.9248L14.4014 13.9258C14.4326 13.9567 14.4577 13.9936 14.4746 14.0342C14.4915 14.0747 14.5 14.1182 14.5 14.1621C14.5 14.206 14.4915 14.2495 14.4746 14.29C14.4577 14.3306 14.4326 14.3675 14.4014 14.3984L14.3984 14.4014C14.3675 14.4326 14.3306 14.4577 14.29 14.4746C14.2495 14.4915 14.206 14.5 14.1621 14.5C14.1182 14.5 14.0747 14.4915 14.0342 14.4746C13.9936 14.4577 13.9567 14.4326 13.9258 14.4014L13.9248 14.4004L11.1006 11.5684L10.7871 11.2539L10.4375 11.5283C9.36156 12.3727 8.03277 12.8308 6.66504 12.8291H6.66406C5.445 12.829 4.25288 12.4673 3.23926 11.79C2.22569 11.1127 1.43625 10.1497 0.969727 9.02344C0.50316 7.89705 0.380327 6.65769 0.618164 5.46191C0.856023 4.26611 1.44354 3.16779 2.30566 2.30566C3.16779 1.44354 4.26611 0.856023 5.46191 0.618164ZM7.7373 1.27148C6.67074 1.05933 5.56524 1.16881 4.56055 1.58496C3.55595 2.00108 2.69693 2.7053 2.09277 3.60938C1.48869 4.51345 1.16611 5.57674 1.16602 6.66406C1.16602 8.12233 1.74522 9.52159 2.77637 10.5527C3.8074 11.5838 5.20598 12.163 6.66406 12.1631C7.75154 12.1631 8.81552 11.8405 9.71973 11.2363C10.6238 10.6322 11.328 9.77315 11.7441 8.76855C12.1603 7.76387 12.2698 6.65837 12.0576 5.5918C11.8455 4.52523 11.3217 3.54533 10.5527 2.77637C9.78378 2.00741 8.80387 1.48365 7.7373 1.27148Z" stroke="currentcolor"/>
                                         </svg>
                                     </span>
-                                    <input type="text" name="search" placeholder="Search here..." class="outline-none min-h-[var(--form-element-height)]">
+                                    <input type="text" name="search" placeholder="Search here..." class="outline-none min-h-[38px]">
+                                </div>
+                                <div class="flex gap-4">
+                                    <button class="border border-[var(--border-color)] min-h-[38px] font-semibold rounded-full px-6 flex items-center justify-center gap-2 cursor-pointer hover:border-[var(--icon-color)] transition">
+                                        <span>Filter</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+                                            <path d="M6.22222 10H9.77778V8.33333H6.22222V10ZM0 0V1.66667H16V0H0ZM2.66667 5.83333H13.3333V4.16667H2.66667V5.83333Z" fill="currentColor"/>
+                                        </svg>
+                                    </button>
+                                    <button class="bg-[var(--body-color)] text-white min-h-[38px] font-semibold rounded-full px-6 flex items-center justify-center gap-2 cursor-pointer">Export</button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-left">
+                                <thead class="bg-[rgb(var(--primary-color-rgb)/10%)] rounded-md">
+                                    <tr>
+                                        <th class="rounded-tl-md rounded-bl-md">Patient ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Age</th>
+                                        <th>Department</th>
+                                        <th>Doctor</th>
+                                        <th>Mobile</th>
+                                        <th>Place</th>
+                                        <th class="rounded-tr-md rounded-br-md">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CA-12224</td>
+                                        <td>John Doe</td>
+                                        <td>44</td>
+                                        <td>Cardiology</td>
+                                        <td>Kevin Obriene</td>
+                                        <td>84236289xx</td>
+                                        <td>Cansas</td>
+                                        <td>
+                                            <span class="inline-block bg-blue-500/20 text-[12px] font-semibold px-4 py-1 text-blue-500 rounded-full">Admitted</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CA-12223</td>
+                                        <td>Alice Capsey</td>
+                                        <td>42</td>
+                                        <td>Neurology</td>
+                                        <td>Jose Butler</td>
+                                        <td>84236289xx</td>
+                                        <td>Nottingham</td>
+                                        <td>
+                                            <span class="inline-block bg-green-500/20 text-[12px] font-semibold px-4 py-1 text-green-500 rounded-full">Discharged</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CA-12222</td>
+                                        <td>Joe Denley</td>
+                                        <td>39</td>
+                                        <td>Emergency</td>
+                                        <td>Marcus Stoinis</td>
+                                        <td>84236289xx</td>
+                                        <td>Birmingham</td>
+                                        <td>
+                                            <span class="inline-block bg-orange-500/20 text-[12px] font-semibold px-4 py-1 text-orange-500 rounded-full">Scheduled Surgey</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CA-12221</td>
+                                        <td>Ricky Martin</td>
+                                        <td>67</td>
+                                        <td>General</td>
+                                        <td>Ben Stokes</td>
+                                        <td>84236289xx</td>
+                                        <td>Wellington</td>
+                                        <td>
+                                            <span class="inline-block bg-gray-500/20 text-[12px] font-semibold px-4 py-1 text-gray-500 rounded-full">Out Patient</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CA-12220</td>
+                                        <td>Annie Derickson</td>
+                                        <td>72</td>
+                                        <td>General</td>
+                                        <td>Brian Bennet</td>
+                                        <td>84236289xx</td>
+                                        <td>Tokyo</td>
+                                        <td>
+                                            <span class="inline-block bg-red-500/20 text-[12px] font-semibold px-4 py-1 text-red-500 rounded-full">Emergency Care</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="flex sm:flex-row flex-col justify-between sm:items-center items-end gap-y-3 mt-6">
+                            <p>Show 1 to 5 of 50 entries</p>
+                            <ul class="pagination flex items-center gap-2">
+                                <li>
+                                    <a href="#" class="disabled">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                            <path d="M0.251094 5.55148L4.66565 9.77869C4.73816 9.84882 4.82443 9.90448 4.91947 9.94246C5.01452 9.98044 5.11646 10 5.21942 10C5.32239 10 5.42433 9.98044 5.51938 9.94246C5.61442 9.90448 5.70069 9.84882 5.77319 9.77869C5.91846 9.63851 6 9.44888 6 9.25122C6 9.05357 5.91846 8.86394 5.77319 8.72376L1.9124 4.98287L5.77319 1.27938C5.91846 1.1392 6 0.949577 6 0.751918C6 0.55426 5.91846 0.364633 5.77319 0.224453C5.70096 0.153759 5.61482 0.0975179 5.51976 0.0589893C5.4247 0.0204606 5.32262 0.000410787 5.21942 -1.49654e-07C5.11623 0.000410787 5.01415 0.0204606 4.91909 0.0589893C4.82403 0.0975179 4.73789 0.153759 4.66565 0.224453L0.251094 4.45166C0.171925 4.52172 0.108741 4.60675 0.065526 4.7014C0.0223106 4.79604 1.29186e-07 4.89825 1.29186e-07 5.00157C1.29186e-07 5.1049 0.0223106 5.2071 0.065526 5.30175C0.108741 5.39639 0.171925 5.48142 0.251094 5.55148Z" fill="currentColor"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="active">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                                <li>
+                                    <a href="#">5</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                            <path d="M5.74891 4.44852L1.33435 0.22131C1.26184 0.151184 1.17557 0.0955243 1.08053 0.0575403C0.985484 0.0195562 0.883539 0 0.780576 0C0.677612 0 0.575667 0.0195562 0.480622 0.0575403C0.385577 0.0955243 0.299313 0.151184 0.226806 0.22131C0.081538 0.36149 0 0.551118 0 0.748776C0 0.946434 0.081538 1.13606 0.226806 1.27624L4.0876 5.01713L0.226806 8.72062C0.081538 8.8608 0 9.05042 0 9.24808C0 9.44574 0.081538 9.63537 0.226806 9.77555C0.299041 9.84624 0.385184 9.90248 0.480241 9.94101C0.575299 9.97954 0.677382 9.99959 0.780576 10C0.88377 9.99959 0.985853 9.97954 1.08091 9.94101C1.17597 9.90248 1.26211 9.84624 1.33435 9.77555L5.74891 5.54834C5.82808 5.47828 5.89126 5.39325 5.93447 5.2986C5.97769 5.20396 6 5.10175 6 4.99843C6 4.8951 5.97769 4.7929 5.93447 4.69826C5.89126 4.60361 5.82808 4.51858 5.74891 4.44852Z" fill="currentColor"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+    <script src="./js/script.js"></script>
 </body>
 </html>

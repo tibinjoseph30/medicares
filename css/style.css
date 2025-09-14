@@ -39,7 +39,7 @@ select option {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.25rem;
-    border-radius: 9999px;
+    border-radius: 100px;
     font-size: 16px;
     font-weight: 500;
     transition: all 0.2s ease-in;
@@ -70,15 +70,60 @@ input[type="range"] {
   accent-color: var(--primary-color);
 }
 
+.card::before,
+.card::after {
+    position: absolute;
+    transition: all 0.4s ease-in;
+}
 .card::before {
     content: url('../images/graphics/Polygon\ 2.svg');
-    position: absolute;
     left: 15px;
     top: 10px;
 }
 .card::after {
     content: url('../images/graphics/Polygon\ 1.svg');
-    position: absolute;
     right: 10px;
     bottom: 0;
+}
+.card:hover::before {
+    transform: rotate(20deg);
+}
+.card:hover::after {
+    transform: rotate(-10deg);
+}
+
+
+
+th {
+    font-weight: 600;
+}
+th, td {
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+}
+td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pagination a {
+    border: 1px solid var(--border-color);
+    min-width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+}
+.pagination a.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+.pagination a:not(.active, .disabled):hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.pagination a.disabled svg {
+    opacity: 0.5;
 }
