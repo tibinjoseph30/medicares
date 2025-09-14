@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #1565C0;
+    --primary-color-rgb: 21 101 192;
+    --secondary-color: #00897B;
+    --body-color: #212121;
+    --border-color: #e2e2e2;
+    --icon-color: #aaaaaa;
+    --placeholder-color: #CACACA;
+    --global-font-size: 14px;
+    --global-font: "Inter", sans-serif;
+    --global-shadow: 0 4px 10px 1px rgba(180, 180, 180, 0.14);
+    --sidebar-width: 280px;
+    --header-height: 65px;
+    --form-element-height: 40px;
+    --main-bg: #F5F6F7
+}
+
+body {
+    margin: 0;
+    font-family: var(--global-font);
+    font-size: var(--global-font-size);
+}
+
+.container {
+    padding: 0 20px;
+}
+
+select:invalid,
+input::placeholder {
+  color: var(--placeholder-color);
+}
+
+select option {
+    color: var(--body-color);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease-in;
+}
+
+.nav-link svg {
+    color: var(--icon-color);
+    transition: all 0.2s ease-in;
+}
+
+.nav-link:hover,
+.nav-link:hover svg {
+    color: var(--primary-color);
+}
+
+.nav-link.active,
+.nav-link.active svg {
+    color: white;
+}
+.nav-link:hover {
+    background: rgb(var(--primary-color-rgb)/10%);
+}
+.nav-link.active {
+    background: var(--primary-color);
+}
+
+input[type="range"] {
+  accent-color: var(--primary-color);
+}
+
+.card::before {
+    content: url('../images/graphics/Polygon\ 2.svg');
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+.card::after {
+    content: url('../images/graphics/Polygon\ 1.svg');
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
