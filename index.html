@@ -151,7 +151,7 @@
             <section>
                 <div class="grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="checkBydate" class="inline-block mb-1">Check by Date</label>
+                        <label for="checkBydate" class="inline-block font-medium mb-1">Check by Date</label>
                         <div class="relative border border-[var(--border-color)] rounded-full bg-white cursor-pointer w-full flex items-center gap-3 shadow-[var(--global-shadow)]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none" class="text-[var(--icon-color)] absolute left-4 pointer-events-none">
                                 <path d="M13.8 2.59999H2.6C1.71634 2.59999 1 3.31634 1 4.19999V15.4C1 16.2836 1.71634 17 2.6 17H13.8C14.6837 17 15.4 16.2836 15.4 15.4V4.19999C15.4 3.31634 14.6837 2.59999 13.8 2.59999Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -159,13 +159,13 @@
                                 <path d="M5 1V4.2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M1 7.39999H15.4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <input type="text" id="checkBydate" placeholder="Select Date" class="min-h-[var(--form-element-height)] outline-none w-full pl-11 pr-4 cursor-pointer">
+                            <input type="text" id="checkBydate" placeholder="Select Date" class="sm:min-h-[var(--form-element-height)] min-h-[55px] outline-none w-full pl-11 pr-4 cursor-pointer">
                         </div>
                     </div>
                     <div>
-                        <label for="selectDepartments" class="inline-block mb-1">Select Department</label>
+                        <label for="selectDepartments" class="inline-block font-medium mb-1">Select Department</label>
                         <div class="relative border border-[var(--border-color)] rounded-full bg-white cursor-pointer w-full flex items-center gap-3 shadow-[var(--global-shadow)]">
-                            <select id="selectDepartments" class="min-h-[var(--form-element-height)] w-full appearance-none outline-none pr-7 cursor-pointer px-4" required>
+                            <select id="selectDepartments" class="sm:min-h-[var(--form-element-height)] min-h-[55px] w-full appearance-none outline-none pr-7 cursor-pointer px-4" required>
                                 <option value="" disabled selected>Select Department</option>
                                 <option value="cardiology">Cardiology</option>
                                 <option value="dermatology">Dermatology</option>
@@ -177,8 +177,8 @@
                         </div>
                     </div>
                     <div>
-                        <label for="searchDoctor" class="inline-block mb-1">Doctor</label>
-                        <input type="text" id="searchDoctor" placeholder="Search Doctor" class="min-h-[var(--form-element-height)] border border-[var(--border-color)] rounded-full px-4 bg-white outline-none cursor-pointer w-full flex items-center gap-3 shadow-[var(--global-shadow)]">
+                        <label for="searchDoctor" class="inline-block font-medium mb-1">Doctor</label>
+                        <input type="text" id="searchDoctor" placeholder="Search Doctor" class="sm:min-h-[var(--form-element-height)] min-h-[55px] border border-[var(--border-color)] rounded-full px-4 bg-white outline-none cursor-pointer w-full flex items-center gap-3 shadow-[var(--global-shadow)]">
                     </div>
                     <div>
                         <label for="ageLimit">Age Limit</label>
@@ -249,20 +249,20 @@
             <!-- graphs & tables starts -->
             <section>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
-                    <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
+                    <div class="bg-white sm:p-6 p-4 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Consultation Per Department</h3>
                         <figure class="mt-4">
                             <img src="./images/graphics/graph1.svg" alt="consultation per department graph" class="w-full" width="506" height="257">
                         </figure>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
+                    <div class="bg-white sm:p-6 p-4 rounded-2xl shadow-[var(--global-shadow)]">
                         <h3 class="text-xl font-semibold">Top Diagnosis</h3>
                         <figure class="mt-4">
                             <img src="./images/graphics/graph2.svg" alt="top diagnosis graph" class="w-full" width="494" height="258">
                         </figure>
                     </div>
                     <!-- tables starts -->
-                    <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-[var(--global-shadow)]">
+                    <div class="md:col-span-2 bg-white sm:p-6 p4 rounded-2xl shadow-[var(--global-shadow)]">
                         <div class="flex md:flex-row flex-col justify-between md:items-center gap-y-2 mb-4">
                             <h3 class="text-xl font-semibold">Patient Details</h3>
                             <div class="flex sm:flex-row flex-col justify-between gap-4">
